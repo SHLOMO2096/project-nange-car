@@ -10,9 +10,9 @@ class Car(models.Model):
     year = models.IntegerField()  # שנת ייצור
     daily_rental_price = models.DecimalField(max_digits=10, decimal_places=2)  # מחיר השכרה ליום
     available = models.BooleanField(default=True)  # האם הרכב זמין להשכרה
-
+    license_plate = models.CharField(max_length=20, unique=True, null=True, blank=True)
     def __str__(self):
-        return f"{self.brand} {self.model} ({self.year})"
+        return f"{self.brand} {self.model} ({self.year})- {self.license_plate}"
 
 
 class Customer(models.Model):
